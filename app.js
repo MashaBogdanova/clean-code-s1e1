@@ -7,10 +7,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-task");//Add a new task.
+var taskInput = document.querySelector(".task_new-task"); // add a new task
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+var incompleteTaskHolder = document.querySelector(".tasks_incomplete"); // tasks-incomplete
+var completedTasksHolder = document.querySelector(".tasks_completed"); // tasks_completed
 
 //New task list item
 var createNewTaskElement=function(taskString){
@@ -106,7 +106,7 @@ var deleteTask=function(){
 var taskCompleted=function(){
   console.log("Complete Task...");
 
-  //Append the task list item to the #completed-tasks
+  //Append the task list item to the tasks_completed
   var listItem=this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
@@ -117,7 +117,7 @@ var taskIncomplete=function(){
 
   //Mark task as incomplete.
   //When the checkbox is unchecked
-  //Append the task list item to the #incompleteTasks.
+  //Append the task list item to the tasks_incomplete.
   var listItem=this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
@@ -152,13 +152,13 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 //cycle over incompleteTaskHolder ul list items
 //for each list item
 for (var i=0; i<incompleteTaskHolder.children.length;i++){
-  //bind events to list items chldren(tasksCompleted)
+  //bind events to list items chldren(tasks_completed)
   bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
 }
 
 //cycle over completedTasksHolder ul list items
 for (var i=0; i<completedTasksHolder.children.length;i++){
-  //bind events to list items chldren(tasksIncompleted)
+  //bind events to list items chldren(tasks_incomplete)
   bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
 
