@@ -94,7 +94,7 @@ body {
   margin: 0 auto 0;
 }
 
-.new-todo__task-wrapper {
+.new-todo {
   display: flex;
 }
 
