@@ -36,8 +36,6 @@ input {
   outline: none;
 }
 
-/* Labels */
-
 
 /* Header */
 .header {
@@ -138,7 +136,7 @@ input #new-task {
   vertical-align: middle;
 }
 
-li > input[type="checkbox"] {
+.todo-item__checkbox {
   margin: 0 10px;
 }
 

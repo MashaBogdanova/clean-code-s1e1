@@ -20,6 +20,7 @@ var createNewTaskElement = function (taskString) {
   // input (checkbox)
   var checkBox = document.createElement("input");
   checkBox.type = "checkbox";
+  checkBox.className = "todo-item__checkbox";
 
   // label
   var label = document.createElement("label");
@@ -120,10 +121,10 @@ var taskCompleted=function(){
 var taskIncomplete=function(){
   console.log("Incomplete Task...");
 
-  //Mark task as incomplete.
-  //When the checkbox is unchecked
-  //Append the task list item to the tasks_incomplete.
-  var listItem=this.parentNode;
+  // mark task as incomplete
+  // when the checkbox is unchecked
+  // append the task list item to the tasks_incomplete
+  var listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
 }
@@ -138,19 +139,19 @@ addButton.onclick = addTask;
 addButton.addEventListener("click", addTask);
 addButton.addEventListener("click", ajaxRequest);
 
-var bindTaskEvents = function(taskListItem,checkBoxEventHandler) {
+var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
   console.log("bind list item events");
 
   // select ListItems children
-  var checkBox = taskListItem.querySelector("input[type=checkbox]");
+  var checkBox = taskListItem.querySelector(".todo-item__checkbox");
   var editButton = taskListItem.querySelector(".button_edit");
   var deleteButton = taskListItem.querySelector(".button_delete");
 
-  //Bind editTask to edit button
+  // bind editTask to edit button
   editButton.onclick = editTask;
-  //Bind deleteTask to delete button
+  // bind deleteTask to delete button
   deleteButton.onclick = deleteTask;
-  //Bind taskCompleted to checkBoxEventHandler
+  // bind taskCompleted to checkBoxEventHandler
   checkBox.onchange = checkBoxEventHandler;
 }
 
