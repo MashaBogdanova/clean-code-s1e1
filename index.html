@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Todo App</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
   <link rel="stylesheet" href="style.css" media="screen">
 </head>
 
@@ -15,9 +15,9 @@
 
 <main class="main">
   <section>
-    <h3 class="section-title section-title_new-todo">Add Item</h3>
-    <div class="new-todo">
-      <input class="todo-item__input todo-item__input_add" type="text">
+    <h3 class="section-title section-title_new-task">Add Item</h3>
+    <div class="new-task">
+      <input class="task__input task__input_add" type="text">
       <button class="button button_add">Add</button>
     </div>
   </section>
@@ -25,19 +25,19 @@
   <section>
     <h3 class="section-title">Todo</h3>
     <ul class="tasks tasks_incomplete">
-      <li class="todo-item">
-        <input class="todo-item__checkbox" type="checkbox">
-        <label class="todo-item__label">Pay Bills</label>
-        <input class="todo-item__input todo-item__input_edit" type="text">
+      <li class="task">
+        <input class="task__checkbox" type="checkbox">
+        <label class="task__label">Pay Bills</label>
+        <input class="task__input task__input_edit" type="text">
         <button class="button button_edit">Edit</button>
         <button class="button button_delete">
           <img src="./remove.svg" alt="">
         </button>
       </li>
-      <li class="todo-item todo-item_edit-mode">
-        <input class="todo-item__checkbox" type="checkbox">
-        <label class="todo-item__label">Go Shopping</label>
-        <input class="todo-item__input todo-item__input_edit" type="text" value="Go Shopping">
+      <li class="task task_edit-mode">
+        <input class="task__checkbox" type="checkbox">
+        <label class="task__label">Go Shopping</label>
+        <input class="task__input task__input_edit" type="text" value="Go Shopping">
         <button class="button button_edit">Save</button>
         <button class="button button_delete">
           <img src="./remove.svg" alt="">
@@ -49,10 +49,10 @@
   <section>
     <h3 class="section-title">Completed</h3>
     <ul class="tasks tasks_completed">
-      <li class="todo-item">
-        <input class="todo-item__checkbox" type="checkbox" checked>
-        <label class="todo-item__label">See the Doctor</label>
-        <input class="todo-item__input todo-item__input_edit" type="text">
+      <li class="task">
+        <input class="task__checkbox" type="checkbox" checked>
+        <label class="task__label">See the Doctor</label>
+        <input class="task__input task__input_edit" type="text">
         <button class="button button_edit">Edit</button>
         <button class="button button_delete">
           <img src="./remove.svg" alt="">

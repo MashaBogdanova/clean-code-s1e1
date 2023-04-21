@@ -1,13 +1,13 @@
-//Document is the DOM can be accessed in the console with document.window.
-// Tree is from the top, html, body, p etc.
+// document is the DOM can be accessed in the console with document.window
+// tree is from the top, html, body, p etc.
 
-//Problem: User interaction does not provide the correct results.
-//Solution: Add interactivity so the user can manage daily tasks.
-//Break things down into smaller steps and take each step at a time.
+// problem: user interaction does not provide the correct results
+// solution: add interactivity so the user can manage daily tasks
+// break things down into smaller steps and take each step at a time
 
-// Event handling, user interaction is what starts the code execution.
+// event handling, user interaction is what starts the code execution
 
-var taskInput = document.querySelector(".todo-item__input_add"); // add a new task
+var taskInput = document.querySelector(".task__input_add"); // add a new task
 var addButton = document.querySelector(".button_add"); // first button
 var incompleteTaskHolder = document.querySelector(".tasks_incomplete"); // tasks_incomplete
 var completedTasksHolder = document.querySelector(".tasks_completed"); // tasks_completed
@@ -15,22 +15,22 @@ var completedTasksHolder = document.querySelector(".tasks_completed"); // tasks_
 // new task list item
 var createNewTaskElement = function (taskString) {
   var listItem = document.createElement("li");
-  listItem.classList.add("todo-item");
+  listItem.classList.add("task");
 
   // input (checkbox)
   var checkBox = document.createElement("input");
   checkBox.type = "checkbox";
-  checkBox.className = "todo-item__checkbox";
+  checkBox.className = "task__checkbox";
 
   // label
   var label = document.createElement("label");
   label.innerText = taskString;
-  label.className = "todo-item__label";
+  label.className = "task__label";
 
   // input (text)
   var editInput = document.createElement("input");
   editInput.type = "text";
-  editInput.classList.add("todo-item__input", "todo-item__input_edit");
+  editInput.classList.add("task__input", "task__input_edit");
 
   // edit button
   var editButton = document.createElement("button");
@@ -60,7 +60,7 @@ var createNewTaskElement = function (taskString) {
 var addTask = function() {
   console.log("Add Task...");
 
-  // create a new list item with the text from the todo-item__input_add
+  // create a new list item with the text from the task__input_add
   if (!taskInput.value) return;
   var listItem = createNewTaskElement(taskInput.value);
 
@@ -78,13 +78,13 @@ var editTask = function() {
 
   var listItem = this.parentNode;
   var editInput = listItem.querySelector("input[type=text]");
-  var label = listItem.querySelector(".todo-item__label");
+  var label = listItem.querySelector(".task__label");
   var editBtn = listItem.querySelector(".button_edit");
-  var containsClass = listItem.classList.contains("todo-item_edit-mode");
+  var containsClass = listItem.classList.contains("task_edit-mode");
 
-  // if class of the parent is todo-item_edit-mode
+  // if class of the parent is task_edit-mode
   if(containsClass) {
-    // switch to todo-item_edit-mode
+    // switch to task_edit-mode
     // label becomes the inputs value
     label.innerText = editInput.value;
     editBtn.innerText = "Edit";
@@ -94,17 +94,17 @@ var editTask = function() {
   }
 
   // toggle edit mode on the parent
-  listItem.classList.toggle("todo-item_edit-mode");
+  listItem.classList.toggle("task_edit-mode");
 };
 
 // delete task
 var deleteTask = function() {
   console.log("Delete Task...");
 
-  var listItem=this.parentNode;
-  var ul=listItem.parentNode;
+  var listItem = this.parentNode;
+  var ul = listItem.parentNode;
 
-  //Remove the parent list item from the ul.
+  // remove the parent list item from the ul
   ul.removeChild(listItem);
 };
 
@@ -143,7 +143,7 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
   console.log("bind list item events");
 
   // select ListItems children
-  var checkBox = taskListItem.querySelector(".todo-item__checkbox");
+  var checkBox = taskListItem.querySelector(".task__checkbox");
   var editButton = taskListItem.querySelector(".button_edit");
   var deleteButton = taskListItem.querySelector(".button_delete");
 
@@ -155,19 +155,19 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
   checkBox.onchange = checkBoxEventHandler;
 }
 
-//cycle over incompleteTaskHolder ul list items
-//for each list item
-for (var i=0; i<incompleteTaskHolder.children.length;i++){
-  //bind events to list items chldren(tasks_completed)
-  bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
+// cycle over incompleteTaskHolder ul list items
+// for each list item
+for (var i = 0; i < incompleteTaskHolder.children.length; i++){
+  // bind events to list items children(tasks_completed)
+  bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
 
-//cycle over completedTasksHolder ul list items
-for (var i=0; i<completedTasksHolder.children.length;i++){
-  //bind events to list items chldren(tasks_incomplete)
+// cycle over completedTasksHolder ul list items
+for (var i = 0; i < completedTasksHolder.children.length; i++){
+  // bind events to list items children (tasks_incomplete)
   bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
 
-// Issues with usability don't get seen until they are in front of a human tester.
-//prevent creation of empty tasks.
-//Change edit to save when you are in edit mode.
+// issues with usability don't get seen until they are in front of a human tester
+// prevent creation of empty tasks
+// change edit to save when you are in edit mode
