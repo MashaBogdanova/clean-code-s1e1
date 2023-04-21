@@ -9,7 +9,7 @@
 
 var taskInput = document.querySelector(".task_new-task"); // add a new task
 var addButton = document.querySelector(".button_add"); // first button
-var incompleteTaskHolder = document.querySelector(".tasks_incomplete"); // tasks-incomplete
+var incompleteTaskHolder = document.querySelector(".tasks_incomplete"); // tasks_incomplete
 var completedTasksHolder = document.querySelector(".tasks_completed"); // tasks_completed
 
 // new task list item
@@ -68,9 +68,9 @@ var addTask = function() {
   bindTaskEvents(listItem, taskCompleted);
 
   taskInput.value="";
-}
+};
 
-//Edit an existing task.
+// edit an existing task
 var editTask = function() {
   console.log("Edit Task...");
   console.log("Change 'edit' to 'save'");
@@ -79,12 +79,12 @@ var editTask = function() {
   var editInput = listItem.querySelector("input[type=text]");
   var label = listItem.querySelector("label");
   var editBtn = listItem.querySelector(".button_edit");
-  var containsClass = listItem.classList.contains("editMode");
+  var containsClass = listItem.classList.contains("todo-item_edit-mode");
 
-  //If class of the parent is .editmode
+  // if class of the parent is todo-item_edit-mode
   if(containsClass) {
-    //switch to .editmode
-    //label becomes the inputs value.
+    // switch to todo-item_edit-mode
+    // label becomes the inputs value
     label.innerText = editInput.value;
     editBtn.innerText = "Edit";
   } else {
@@ -92,11 +92,11 @@ var editTask = function() {
     editBtn.innerText = "Save";
   }
 
-  //toggle .editmode on the parent.
-  listItem.classList.toggle("editMode");
+  // toggle edit mode on the parent
+  listItem.classList.toggle("todo-item_edit-mode");
 };
 
-//Delete task.
+// delete task
 var deleteTask=function(){
   console.log("Delete Task...");
 
@@ -105,7 +105,7 @@ var deleteTask=function(){
 
   //Remove the parent list item from the ul.
   ul.removeChild(listItem);
-}
+};
 
 //Mark task completed
 var taskCompleted=function(){
