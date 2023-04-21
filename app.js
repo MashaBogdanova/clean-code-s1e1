@@ -24,7 +24,7 @@ var createNewTaskElement = function (taskString) {
   // label
   var label = document.createElement("label");
   label.innerText = taskString;
-  label.className = "task";
+  label.className = "todo-item__label";
 
   // input (text)
   var editInput = document.createElement("input");
@@ -77,7 +77,7 @@ var editTask = function() {
 
   var listItem = this.parentNode;
   var editInput = listItem.querySelector("input[type=text]");
-  var label = listItem.querySelector("label");
+  var label = listItem.querySelector(".todo-item__label");
   var editBtn = listItem.querySelector(".button_edit");
   var containsClass = listItem.classList.contains("todo-item_edit-mode");
 
