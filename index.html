@@ -14,7 +14,7 @@
       <h3 class="section-title section-title_new-todo">Add Item</h3>
       <p class="new-todo">
         <div class="new-todo__task-wrapper">
-          <input id="new-task" class="task task_new-task" type="text">
+          <input class="todo-item__input todo-item__input_add" type="text">
           <button class="button button_add">Add</button>
         </div>
       </p>
@@ -24,7 +24,7 @@
         <li class="todo-item">
           <input class="todo-item__checkbox" type="checkbox">
           <label class="todo-item__label">Pay Bills</label>
-          <input type="text" class="task">
+          <input class="todo-item__input todo-item__input_edit" type="text">
           <button class="button button_edit">Edit</button>
           <button class="button button_delete">
             <img src="./remove.svg" alt="">
@@ -33,7 +33,7 @@
         <li class="todo-item todo-item_edit-mode">
           <input class="todo-item__checkbox" type="checkbox">
           <label class="todo-item__label">Go Shopping</label>
-          <input type="text" value="Go Shopping" class="task">
+          <input class="todo-item__input todo-item__input_edit" type="text" value="Go Shopping">
           <button class="button button_edit">Save</button>
           <button class="button button_delete">
             <img src="./remove.svg" alt="">
@@ -46,7 +46,7 @@
         <li class="todo-item">
           <input class="todo-item__checkbox" type="checkbox" checked>
           <label class="todo-item__label">See the Doctor</label>
-          <input type="text" class="task">
+          <input class="todo-item__input todo-item__input_edit" type="text">
           <button class="button button_edit">Edit</button>
           <button class="button button_delete">
             <img src="./remove.svg" alt="">

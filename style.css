@@ -32,10 +32,38 @@ body {
 }
 
 /* Inputs */
-input {
+.todo-item__input,
+.todo-item__label {
+  width: 56%;
+  display: inline-block;
+  flex-grow: 1;
+}
+
+.todo-item__input {
+  margin: 0;
+  font-size: 18px;
+  line-height: 18px;
+  height: 21px;
+  padding: 0 9px;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888888;
   outline: none;
 }
 
+.todo-item__input:focus {
+  color: #333333;
+}
+
+.todo-item__input_add {
+  width: 318px;
+}
+
+.todo-item__input_edit {
+  width: 226px;
+}
 
 /* Header */
 .header {
@@ -66,13 +94,6 @@ input {
   margin: 0 auto 0;
 }
 
-.task,
-.todo-item__label {
-  width: 56%;
-  display: inline-block;
-  flex-grow: 1;
-}
-
 .new-todo__task-wrapper {
   display: flex;
 }
@@ -84,10 +105,10 @@ input {
 
 /* Heading */
 .section-title {
-  color: #333;
+  color: #333333;
   font-weight: 700;
   font-size: 15px;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #333333;
   padding: 30px 0 10px;
   margin: 0;
   text-transform: uppercase;
@@ -97,33 +118,11 @@ input {
   margin: 0 0 20px;
 }
 
-input[type="text"] {
-  margin: 0;
-  font-size: 18px;
-  line-height: 18px;
-  height: 21px;
-  padding: 0 9px;
-  border: 1px solid #dDd;
-  background: #FFF;
-  border-radius: 6px;
-  font-family: Lato, sans-serif;
-  color: #888;
-}
-
-input[type="text"]:focus {
-  color: #333;
-}
-
-/* New Task */
-input #new-task {
-  width: 318px;
-}
-
 /* Task list */
 .todo-item {
   overflow: hidden;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
 
   display: flex;
   justify-content: space-between;
@@ -147,22 +146,18 @@ input #new-task {
   width: 226px;
 }
 
-li > input[type="text"] {
-  width: 226px;
-}
-
 /* Completed */
 .tasks_completed .todo-item__label {
   text-decoration: line-through;
-  color: #888;
+  color: #888888;
 }
 
 /* Edit Task */
-ul li input[type=text] {
+.todo-item__input_edit {
   display: none;
 }
 
-.todo-item_edit-mode input[type=text] {
+.todo-item_edit-mode .todo-item__input_edit {
   display: inline-block;
   width: 224px;
 }

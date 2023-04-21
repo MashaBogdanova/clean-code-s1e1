@@ -7,7 +7,7 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput = document.querySelector(".task_new-task"); // add a new task
+var taskInput = document.querySelector(".todo-item__input_add"); // add a new task
 var addButton = document.querySelector(".button_add"); // first button
 var incompleteTaskHolder = document.querySelector(".tasks_incomplete"); // tasks_incomplete
 var completedTasksHolder = document.querySelector(".tasks_completed"); // tasks_completed
@@ -30,7 +30,7 @@ var createNewTaskElement = function (taskString) {
   // input (text)
   var editInput = document.createElement("input");
   editInput.type = "text";
-  editInput.className = "task";
+  editInput.classList.add("todo-item__input", "todo-item__input_edit");
 
   // edit button
   var editButton = document.createElement("button");
@@ -60,11 +60,11 @@ var createNewTaskElement = function (taskString) {
 var addTask = function() {
   console.log("Add Task...");
 
-  //Create a new list item with the text from the #new-task:
+  // create a new list item with the text from the todo-item__input_add
   if (!taskInput.value) return;
   var listItem = createNewTaskElement(taskInput.value);
 
-  //Append listItem to incompleteTaskHolder
+  // append listItem to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 
@@ -98,7 +98,7 @@ var editTask = function() {
 };
 
 // delete task
-var deleteTask=function(){
+var deleteTask = function() {
   console.log("Delete Task...");
 
   var listItem=this.parentNode;
@@ -108,17 +108,17 @@ var deleteTask=function(){
   ul.removeChild(listItem);
 };
 
-//Mark task completed
-var taskCompleted=function(){
+// mark task completed
+var taskCompleted = function() {
   console.log("Complete Task...");
 
-  //Append the task list item to the tasks_completed
-  var listItem=this.parentNode;
+  // append the task list item to the tasks_completed
+  var listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 }
 
-var taskIncomplete=function(){
+var taskIncomplete = function() {
   console.log("Incomplete Task...");
 
   // mark task as incomplete
@@ -126,7 +126,7 @@ var taskIncomplete=function(){
   // append the task list item to the tasks_incomplete
   var listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
-  bindTaskEvents(listItem,taskCompleted);
+  bindTaskEvents(listItem, taskCompleted);
 }
 
 var ajaxRequest=function(){
